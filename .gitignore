@@ -1,0 +1,37 @@
+# This folder mixes the talk with large local data and private drafts.
+# Ignore everything by default and whitelist what the deck needs.
+/*
+
+# Deck sources
+!/.gitignore
+!/README.md
+!/AGENTS.md
+!/index.qmd
+!/_quarto.yml
+!/gp-quarto.css
+!/gp-quarto.js
+!/includes/
+!/gp-template/
+!/_extensions/
+
+# Paper bibliography (the rest of the paper directory stays private)
+!/COMMA_LLM_arg_parsing/
+/COMMA_LLM_arg_parsing/*
+!/COMMA_LLM_arg_parsing/sample.bib
+
+# Figures used by the deck
+!/images/
+/images/*
+!/images/searle_generic.svg
+!/images/searle_dung.svg
+!/images/searle_carneades.svg
+!/images/argument_graph_eval_outcomes.svg
+!/images/argument_graph_stats.svg
+
+# Rendered site (hosted)
+!/index.html
+!/index_files/
+
+# Never commit OS/tool junk even inside whitelisted dirs
+.DS_Store
+.quarto/

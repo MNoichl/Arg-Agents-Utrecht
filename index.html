@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-aa6116068bda62cf0d776f6eff35862e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <title>Agentic LLMs for Argument Mining in Philosophical Texts - Utrecht</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="gp-template/css/grid-protocol.css">
+  <link rel="stylesheet" href="gp-template/css/gp-image-fx.css">
+  <link rel="stylesheet" href="gp-quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/multimodal/multimodal.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,650&amp;family=Source+Sans+3:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+  .center-xy {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    box-sizing: border-box; /* Include padding/border in size */
+    max-height: none;
+  }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="agentic-llms-for-argument-mining-in-philosophical-texts" class="slide level1" data-layout="title" data-gp-kicker="HAI-WORKSHOP / ESDiT" data-gp-code="Agentic LLMs for Argument Mining in Philosophical Texts" data-gp-section="Title">
+<h1>Agentic LLMs for Argument Mining in Philosophical Texts</h1>
+<div class="gp-subtitle">
+<p>HAI-Workshop ‘Symbolic and Neuro-Symbolic AI: Reasoning and Learning’</p>
+</div>
+<div class="gp-meta-grid">
+<div class="gp-block">
+<p><span class="gp-label">Speakers</span> Max Noichl &amp; Jan Broersen</p>
+</div>
+<div class="gp-block">
+<p><span class="gp-label">Affiliation</span> Theoretical Philosophy, Utrecht University, The Netherlands</p>
+</div>
+<div class="gp-block">
+<p><span class="gp-label">Venue</span> Utrecht University Library - Drift 27, room 1.25 (Tielezaal)</p>
+</div>
+</div>
+</section>
+<section id="overview" class="slide level1" data-layout="bullets" data-gp-section="Overview">
+<h1>Overview</h1>
+<ul>
+<li>Research question, motivation and method</li>
+<li>Argumentation in philosophy</li>
+<li>Choosing argumentation frameworks</li>
+<li>Results (Max takes over, with his own slides?)</li>
+</ul>
+</section>
+<section id="research-question-method" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Question">
+<h1>Research Question + Method</h1>
+<ul>
+<li>Can we use LLMs to analyse and map out the argumentative structures of philosophical texts, leveraging the symbolic knowledge captured by formal argumentation frameworks?</li>
+<li>Method:
+<ul>
+<li>One informal framework + Dung + Carneades</li>
+<li>The use of agentive LLMs to break down the analysis in controllable steps</li>
+<li>The use of a specific dataset with [number] papers on philosophy of AI</li>
+<li>Different approaches to validation (next slide)</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="PeldszusStede2013 LippiTorroni2016 LiEtAl2025LLMArgumentMiningSurvey">(Peldszus and Stede 2013; Lippi and Torroni 2016; Li et al. 2025)</span></p>
+</div></aside></section>
+<section id="validation" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Validation">
+<h1>Validation</h1>
+<ul>
+<li>Inspecting the argumentation graph outcomes for well-known papers</li>
+<li>Checking [number] random argument connections in produced graphs manually</li>
+<li>Checking if the formal semantics tracks the argumentation and conclusion in the papers (assuming argumentation in the papers is correct)</li>
+<li>Checking structural properties of the produced graphs against expectations of these properties in relation to philosophical texts</li>
+</ul>
+</section>
+<section id="motivation" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Motivation">
+<h1>Motivation</h1>
+<ul>
+<li>A tool for students and researchers to get to the core of a paper more quickly</li>
+<li>Validity and ‘completeness’ checking of arguments in philosophical texts</li>
+<li>A metric for further quantitative and qualitative exploration of the body of knowledge that forms philosophy</li>
+<li>Answering questions on differences between areas in philosophy</li>
+<li>Exploring if philosophical argumentation is in some sense ‘special’ (not begging the question, collapsing the distinction, etc.)</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="Hintikka1970InformationDeductionAPriori Noichl2021 Petrovich2024QuantitativePortrait MalaterreLareau2022">(Hintikka 1970; Noichl 2021; Petrovich 2024; Malaterre and Lareau 2022)</span></p>
+</div></aside></section>
+<section id="what-does-a-formal-structure-add" class="slide level1" data-layout="bullets" data-gp-section="Formal Structure">
+<h1>What does a formal structure add?</h1>
+<ul>
+<li>An exact format (a formal language)</li>
+<li>A level of abstraction</li>
+<li>A formal semantics (an exact theory, in terms of the formal language, on what arguments are valid)</li>
+</ul>
+<p><br></p>
+<p><strong>Are LLMs examples of symbolic or sub-symbolic AI?</strong></p>
+</section>
+<section id="criteria-for-choosing-a-formal-structure" class="slide level1" data-layout="bullets" data-gp-section="Criteria">
+<h1>Criteria for choosing a formal structure</h1>
+<ul>
+<li>Do we, apart from a formal syntax, require a formal semantics?</li>
+<li>Are positions/statements (targets or starting points for defense or attack) atomic or structured?</li>
+<li>Do we allow for hierarchy?</li>
+<li>Does a scheme only have attack relations or also support relations?</li>
+<li>Do we distinguish between different kinds of attack and support?</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="CohenGottifrediGarciaSimari2014SupportSurvey CayrolLagasquieSchiex2005AcceptabilityBipolar">(Cohen et al. 2014; Cayrol and Lagasquie-Schiex 2005)</span></p>
+</div></aside></section>
+<section id="the-structure-of-argumentation" class="slide level1" data-layout="bullets" data-gp-section="Argumentation">
+<h1>The structure of argumentation</h1>
+<ul>
+<li>Dung: abstract (only arguments and attacks)</li>
+<li>ASPIC+: structured (premisses, different kinds of support, etc.)</li>
+<li>Carneades:</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="Dung1995 ModgilPrakken2014 GordonPrakkenWalton2007Carneades">(Dung 1995; Modgil and Prakken 2014; Gordon, Prakken, and Walton 2007)</span></p>
+</div></aside></section>
+<section id="pilot-study" class="slide level1" data-layout="divider" data-gp-kicker="Over to Max" data-gp-section="Pilot Study">
+<h1>Pilot study</h1>
+</section>
+<section id="pilot-study-data" class="slide level1" data-layout="bullets" data-gp-section="Data">
+<h1>Pilot study: Data</h1>
+<ul>
+<li>Corpus: <em>Mind Design III</em> — classic texts at the interface of philosophy, psychology, and AI: Searle, Dennett, Churchland, Fodor, …</li>
+<li>21 articles, median length 32 pages (range 16–42).</li>
+<li>Chosen for the quality of the texts, our familiarity with them, and their interest to our audience.</li>
+<li>Excluded: Turing’s <em>Computing Machinery and Intelligence</em> — the <em>imitation game</em> setup kept triggering our AI provider’s safety features.</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="haugelandMindDesignIII2023">(Haugeland, Craver, and Klein 2023)</span></p>
+</div></aside></section>
+<section id="pilot-study-workflow" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Workflow">
+<h1>Pilot study: Workflow</h1>
+<ul>
+<li>Agentic loop instead of single-pass prompting: arguments are distributed across philosophical texts in a highly nonlinear fashion.</li>
+<li>GPT-5.4 (reasoning effort “medium”) in OpenAI’s Codex CLI — tool-use, repeated text-lookups, iterative building of structures.</li>
+<li>Pass 1: work through the whole text (Markdown), annotate argumentatively relevant passages.</li>
+<li>Pass 2: build a JSON argument graph, following scheme-specific guidelines — generic, Dung-style, Carneades-style.</li>
+<li>63 graphs (21 papers × 3 schemes), laid out with Graphviz.</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="LiEtAl2025LLMArgumentMiningSurvey ChenEtAl2024ComputationalArgumentation RuizDolzKiktevaLawrence2025">(Li et al. 2025; Chen et al. 2024; Ruiz-Dolz, Kikteva, and Lawrence 2025)</span></p>
+</div></aside></section>
+<section id="section" class="slide level1 gp-schemes-full" data-layout="filters" data-gp-section="Argument Graphs">
+<h1></h1>
+<div class="gp-scheme-grid">
+  <div class="gp-scheme-panel">
+    <div class="gp-scheme-label">01 / Generic</div>
+    <div class="gp-panzoom"><img src="images/searle_generic.svg" alt="Generic argument graph of Searle 1980" draggable="false"></div>
+  </div>
+  <div class="gp-scheme-panel">
+    <div class="gp-scheme-label">02 / Dung</div>
+    <div class="gp-panzoom"><img src="images/searle_dung.svg" alt="Dung-style argument graph of Searle 1980" draggable="false"></div>
+  </div>
+  <div class="gp-scheme-panel">
+    <div class="gp-scheme-label">03 / Carneades</div>
+    <div class="gp-panzoom"><img src="images/searle_carneades.svg" alt="Carneades-style argument graph of Searle 1980" draggable="false"></div>
+  </div>
+  <div class="gp-scheme-hint">Searle (1980) · scroll to zoom · drag to pan · double-click to reset</div>
+</div>
+</section>
+<section id="pilot-study-results" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Results">
+<h1>Pilot study: Results</h1>
+<ul>
+<li>Holistic check of papers we know well: reconstruction of argumentative lines impressively good.</li>
+<li>Human validation: 46 of 50 uniformly sampled links fully justified (92%, 95% Wilson CI [81.2%, 96.8%]).</li>
+<li>LLM-assisted audit (Opus 4.6): no critical faithfulness deviations in any scheme; 1–2 major deviations at the median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
+<li>But: Carneades is hard to follow — significantly more guideline deviations.</li>
+<li>Graph structure tracks the scheme: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true">Graph features</a></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="searleMindsBrainsPrograms1980">(Searle 1980)</span></p>
+</div></aside></section>
+<section id="thanks-for-listening" class="slide level1" data-layout="divider" data-gp-section="Thanks">
+<h1>Thanks for listening!</h1>
+</section>
+<section id="literature" class="slide level1 smaller scrollable" data-layout="references" data-gp-section="References">
+<h1>Literature</h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CayrolLagasquieSchiex2005AcceptabilityBipolar" class="csl-entry" role="listitem">
+Cayrol, Claudette, and Marie-Christine Lagasquie-Schiex. 2005. <span>“On the Acceptability of Arguments in Bipolar Argumentation Frameworks.”</span> In <em>Symbolic and Quantitative Approaches to Reasoning with Uncertainty</em>, edited by Lluís Godo, 3571:378–89. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/11518655_33">https://doi.org/10.1007/11518655_33</a>.
+</div>
+<div id="ref-ChenEtAl2024ComputationalArgumentation" class="csl-entry" role="listitem">
+Chen, Guizhen, Liying Cheng, Anh Tuan Luu, and Lidong Bing. 2024. <span>“Exploring the Potential of Large Language Models in Computational Argumentation.”</span> In <em>Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em>, 2309–30. Bangkok, Thailand: Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2024.acl-long.126">https://doi.org/10.18653/v1/2024.acl-long.126</a>.
+</div>
+<div id="ref-CohenGottifrediGarciaSimari2014SupportSurvey" class="csl-entry" role="listitem">
+Cohen, Andrea, Sebastian Gottifredi, Alejandro J. García, and Guillermo R. Simari. 2014. <span>“A Survey of Different Approaches to Support in Argumentation Systems.”</span> <em>The Knowledge Engineering Review</em> 29 (5): 513–50. <a href="https://doi.org/10.1017/S0269888913000323">https://doi.org/10.1017/S0269888913000323</a>.
+</div>
+<div id="ref-Dung1995" class="csl-entry" role="listitem">
+Dung, Phan Minh. 1995. <span>“On the Acceptability of Arguments and Its Fundamental Role in Nonmonotonic Reasoning, Logic Programming and <span>N</span>-Person Games.”</span> <em>Artificial Intelligence</em> 77 (2): 321–57. <a href="https://doi.org/10.1016/0004-3702(94)00041-X">https://doi.org/10.1016/0004-3702(94)00041-X</a>.
+</div>
+<div id="ref-GordonPrakkenWalton2007Carneades" class="csl-entry" role="listitem">
+Gordon, Thomas F., Henry Prakken, and Douglas N. Walton. 2007. <span>“The Carneades Model of Argument and Burden of Proof.”</span> <em>Artificial Intelligence</em> 171 (10–15): 875–96.
+</div>
+<div id="ref-haugelandMindDesignIII2023" class="csl-entry" role="listitem">
+Haugeland, John, Carl F. Craver, and Colin Klein, eds. 2023. <em>Mind Design <span>III</span>: Philosophy, Psychology, and Artificial Intelligence</em>. New edition. Cambridge, Massachusetts London, England: The MIT Press.
+</div>
+<div id="ref-Hintikka1970InformationDeductionAPriori" class="csl-entry" role="listitem">
+Hintikka, Jaakko. 1970. <span>“Information, Deduction, and the a Priori.”</span> <em>Noûs</em> 4 (2): 135–52. <a href="https://doi.org/10.2307/2214318">https://doi.org/10.2307/2214318</a>.
+</div>
+<div id="ref-LiEtAl2025LLMArgumentMiningSurvey" class="csl-entry" role="listitem">
+Li, Hao, Yizheng Sun, Viktor Schlegel, Riza Theresa Batista-Navarro, and Goran Nenadic. 2025. <span>“Large Language Models in Argument Mining: A Survey.”</span> <a href="https://arxiv.org/abs/2506.16383">https://arxiv.org/abs/2506.16383</a>.
+</div>
+<div id="ref-LippiTorroni2016" class="csl-entry" role="listitem">
+Lippi, Marco, and Paolo Torroni. 2016. <span>“Argumentation Mining: State of the Art and Emerging Trends.”</span> <em>ACM Transactions on Internet Technology</em> 16 (2): 1–25. <a href="https://doi.org/10.1145/2850417">https://doi.org/10.1145/2850417</a>.
+</div>
+<div id="ref-MalaterreLareau2022" class="csl-entry" role="listitem">
+Malaterre, Christophe, and François Lareau. 2022. <span>“The Early Days of Contemporary Philosophy of Science: Novel Insights from Machine Translation and Topic-Modeling of Non-Parallel Multilingual Corpora.”</span> <em>Synthese</em> 200: 242. <a href="https://doi.org/10.1007/s11229-022-03722-x">https://doi.org/10.1007/s11229-022-03722-x</a>.
+</div>
+<div id="ref-ModgilPrakken2014" class="csl-entry" role="listitem">
+Modgil, Sanjay, and Henry Prakken. 2014. <span>“The <span>ASPIC+</span> Framework for Structured Argumentation: A Tutorial.”</span> <em>Argument and Computation</em> 5 (1): 31–62. <a href="https://doi.org/10.1080/19462166.2013.869766">https://doi.org/10.1080/19462166.2013.869766</a>.
+</div>
+<div id="ref-Noichl2021" class="csl-entry" role="listitem">
+Noichl, Maximilian. 2021. <span>“Modeling the Structure of Recent Philosophy.”</span> <em>Synthese</em> 198 (6): 5089–5100. <a href="https://doi.org/10.1007/s11229-019-02390-8">https://doi.org/10.1007/s11229-019-02390-8</a>.
+</div>
+<div id="ref-PeldszusStede2013" class="csl-entry" role="listitem">
+Peldszus, Andreas, and Manfred Stede. 2013. <span>“From Argument Diagrams to Argumentation Mining in Texts: A Survey.”</span> <em>International Journal of Cognitive Informatics and Natural Intelligence</em> 7 (1): 1–31. <a href="https://doi.org/10.4018/jcini.2013010101">https://doi.org/10.4018/jcini.2013010101</a>.
+</div>
+<div id="ref-Petrovich2024QuantitativePortrait" class="csl-entry" role="listitem">
+Petrovich, Eugenio. 2024. <em>A Quantitative Portrait of Analytic Philosophy: Looking Through the Margins</em>. Cham: Springer. <a href="https://doi.org/10.1007/978-3-031-53200-9">https://doi.org/10.1007/978-3-031-53200-9</a>.
+</div>
+<div id="ref-RuizDolzKiktevaLawrence2025" class="csl-entry" role="listitem">
+Ruiz-Dolz, Ramon, Zlata Kikteva, and John Lawrence. 2025. <span>“Mining Complex Patterns of Argumentative Reasoning in Natural Language Dialogue.”</span> In <em>Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em>, 7421–35. Vienna, Austria: Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2025.acl-long.368">https://doi.org/10.18653/v1/2025.acl-long.368</a>.
+</div>
+<div id="ref-searleMindsBrainsPrograms1980" class="csl-entry" role="listitem">
+Searle, John R. 1980. <span>“Minds, Brains, and Programs.”</span> <em>Behavioral and Brain Sciences</em> 3 (3): 417–24. <a href="https://doi.org/10.1017/S0140525X00005756">https://doi.org/10.1017/S0140525X00005756</a>.
+</div>
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/multimodal/multimodal.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 4.0e-2,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 1.6,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, Multimodal, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script src="gp-quarto.js?v=20260522a"></script>
+    <script src="gp-template/js/grid-protocol.js?v=20260212a"></script>
+    <script type="module" src="gp-template/js/gp-paper-shaders-halftone.js?v=20260212a"></script>
+    <script>
+    (function waitForReveal(){
+        if (!window.Reveal || !Reveal.on) return setTimeout(waitForReveal, 30);
+
+        // Open when the inline modal fragment becomes visible (forward OR backward)
+        Reveal.on('fragmentshown', (e) => {
+            if (e.fragment.classList.contains('opens-modal')) {
+                e.fragment.click();
+                return;
+            }
+            const trigger = e.fragment.querySelector && e.fragment.querySelector('.opens-modal');
+            if (!trigger) return;
+            if (trigger.classList.contains('fragment') && !trigger.classList.contains('current-fragment')) return;
+            trigger.click();
+        });
+
+        // While modal is open: ArrowRight / Enter => close (don't advance)
+        document.addEventListener('keydown', (ev) => {
+            const deck = document.querySelector('.reveal');
+            const open = deck && deck.classList.contains('multimodal-open');
+            if (open && (ev.key === 'ArrowRight' || ev.key === 'Enter')) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+            }
+        }, { capture: true });
+    })();
+    </script>
+    <script>
+    // Per-panel pan/zoom for .gp-panzoom containers (argument-scheme exhibits).
+    (function initGpPanZoom(){
+        const MAX_SCALE = 60;
+
+        function setup(container){
+            const img = container.querySelector('img');
+            if (!img) return;
+            let scale = 1, tx = 0, ty = 0;
+            let dragging = false, lastX = 0, lastY = 0;
+
+            const apply = () => {
+                img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+            };
+
+            // Reveal scales the whole deck with a CSS transform; convert client px
+            // into the container's unscaled coordinate space.
+            const unscale = (rect) => ({
+                x: container.offsetWidth / rect.width,
+                y: container.offsetHeight / rect.height,
+            });
+
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const rect = container.getBoundingClientRect();
+                const u = unscale(rect);
+                const next = Math.min(MAX_SCALE, Math.max(1, scale * Math.exp(-e.deltaY * 0.002)));
+                const ratio = next / scale;
+                const cx = (e.clientX - rect.left) * u.x;
+                const cy = (e.clientY - rect.top) * u.y;
+                tx = cx - ratio * (cx - tx);
+                ty = cy - ratio * (cy - ty);
+                scale = next;
+                if (scale === 1) { tx = 0; ty = 0; }
+                apply();
+            }, { passive: false });
+
+            container.addEventListener('pointerdown', (e) => {
+                dragging = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                container.setPointerCapture(e.pointerId);
+                container.classList.add('is-dragging');
+                e.preventDefault();
+                e.stopPropagation();
+            });
+
+            container.addEventListener('pointermove', (e) => {
+                if (!dragging) return;
+                const u = unscale(container.getBoundingClientRect());
+                tx += (e.clientX - lastX) * u.x;
+                ty += (e.clientY - lastY) * u.y;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                apply();
+            });
+
+            ['pointerup', 'pointercancel'].forEach((type) => {
+                container.addEventListener(type, () => {
+                    dragging = false;
+                    container.classList.remove('is-dragging');
+                });
+            });
+
+            container.addEventListener('dblclick', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                scale = 1; tx = 0; ty = 0;
+                apply();
+            });
+        }
+
+        function init(){
+            document.querySelectorAll('.gp-panzoom').forEach(setup);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

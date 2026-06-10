@@ -187,10 +187,10 @@
 <li>Research question and motivation</li>
 <li>Argumentation in philosophy</li>
 <li>Choosing argumentation frameworks</li>
-<li>Pilot-study &amp; Results</li>
+<li>Pilot study &amp; Results</li>
 </ul>
 </section>
-<section id="research-questions" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Question">
+<section id="research-questions" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Questions">
 <h1>Research Questions</h1>
 <ul>
 <li>Can we use LLMs to analyse and map out the argumentative structures of philosophical texts, leveraging the symbolic knowledge captured by formal argumentation frameworks?</li>
@@ -249,8 +249,8 @@
 <h1>The structure of argumentation</h1>
 <ul>
 <li>Dung: abstract (only arguments and attacks)</li>
-<li>ASPIC+: structured (premisses, different kinds of support, etc.)</li>
-<li>Carneades <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/carneades_attack_types.png" data-modal-navblock="true">Attack types</a></li>
+<li>ASPIC+: structured (premisses, different kinds of support, etc.) <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/carneades_attack_types.png" data-modal-navblock="true">Attack types</a></li>
+<li>Carneades</li>
 </ul>
 
 <!-- # Pilot study {layout="divider" data-gp-kicker="Over to Max" data-gp-section="Pilot Study"} -->
@@ -271,10 +271,10 @@
 <section id="pilot-study-workflow" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Workflow">
 <h1>Pilot study: Workflow</h1>
 <ul>
-<li>Agentic loop, not single-pass: arguments are distributed across philosophical texts.</li>
+<li>Agentic loop, not single-pass: arguments are distributed nonlinearly across philosophical texts.</li>
 <li>GPT-5.4 in OpenAI’s Codex CLI: tool-use, repeated text-lookups, iterative work.
 <ul>
-<li>Stage 1: work through the whole text (Markdown) &amp; annotate argument passages.</li>
+<li>Pass 1: work through the whole text (Markdown) &amp; annotate argument passages.</li>
 <li>Pass 2: build a JSON argument graph, according to guidelines — generic, Dung- &amp; Carneades-style.</li>
 </ul></li>
 <li>63 graphs (21 papers × 3 schemes), laid out with Graphviz.</li>
@@ -306,7 +306,7 @@
 <!-- * Holistic check of papers we know well: reconstruction of argumentative lines impressively good. -->
 <!-- (92%, 95% Wilson CI [81.2%, 96.8%]). -->
 <ul>
-<li>Human validation: 46 of 50 of sampled links appear fully justified</li>
+<li>Human validation: 46 of 50 sampled links appear fully justified.</li>
 <li>LLM-assisted audit (Opus 4.6): no critical <em>faithfulness</em> deviations in any scheme; 1–2 major deviations at median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
 <li>But: Carneades is hard to follow: sig. more <em>guideline</em> deviations.</li>
 <li>Graph structure tracks the schemes: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true">Graph features</a></li>
@@ -318,7 +318,7 @@
 <section id="conclusion-further-work" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Conclusion">
 <h1>Conclusion &amp; further work</h1>
 <ul>
-<li>Parsing arguments with agentic LLM’s appears fully viable.</li>
+<li>Parsing arguments with agentic LLMs appears fully viable.</li>
 <li>But much remains to be done!</li>
 <li>What are the optimal argumentation frameworks &amp; workflows?</li>
 <li>How to integrate solvers &amp; verifiers?</li>

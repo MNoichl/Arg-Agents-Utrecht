@@ -29,10 +29,10 @@ HAI-Workshop 'Symbolic and Neuro-Symbolic AI: Reasoning and Learning'
 * Research question and motivation
 * Argumentation in philosophy
 * Choosing argumentation frameworks
-* Pilot-study & Results
+* Pilot study & Results
 
 
-# Research Questions {layout="bullets" .gp-dense data-gp-section="Research Question"}
+# Research Questions {layout="bullets" .gp-dense data-gp-section="Research Questions"}
 
 * Can we use LLMs to analyse and map out the argumentative structures of philosophical texts, leveraging the symbolic knowledge captured by formal argumentation frameworks?
 * How can such a system work, how do we validate it?
@@ -92,8 +92,8 @@ HAI-Workshop 'Symbolic and Neuro-Symbolic AI: Reasoning and Learning'
 # The structure of argumentation {layout="bullets" data-gp-section="Argumentation"}
 
 * Dung: abstract (only arguments and attacks)
-* ASPIC+: structured (premisses, different kinds of support, etc.)
-* Carneades [Attack types](#){.fragment .opens-modal data-modal-type="image" data-modal-url="images/carneades_attack_types.png" data-modal-navblock="true"}
+* ASPIC+: structured (premisses, different kinds of support, etc.) [Attack types](#){.fragment .opens-modal data-modal-type="image" data-modal-url="images/carneades_attack_types.png" data-modal-navblock="true"}
+* Carneades
 
 ::: aside
 [@Dung1995; @ModgilPrakken2014; @GordonPrakkenWalton2007Carneades]
@@ -117,9 +117,9 @@ HAI-Workshop 'Symbolic and Neuro-Symbolic AI: Reasoning and Learning'
 
 # Pilot study: Workflow {layout="bullets" .gp-dense data-gp-section="Workflow"}
 
-* Agentic loop, not single-pass: arguments are distributed across philosophical texts.
+* Agentic loop, not single-pass: arguments are distributed nonlinearly across philosophical texts.
 * GPT-5.4 in OpenAI's Codex CLI: tool-use, repeated text-lookups, iterative work.
-  * Stage 1: work through the whole text (Markdown) & annotate argument passages.
+  * Pass 1: work through the whole text (Markdown) & annotate argument passages.
   * Pass 2: build a JSON argument graph, according to guidelines — generic, Dung- & Carneades-style.
 * 63 graphs (21 papers × 3 schemes), laid out with Graphviz.
 
@@ -153,7 +153,7 @@ HAI-Workshop 'Symbolic and Neuro-Symbolic AI: Reasoning and Learning'
 
 <!-- * Holistic check of papers we know well: reconstruction of argumentative lines impressively good. -->
 <!-- (92%, 95% Wilson CI [81.2%, 96.8%]). -->
-* Human validation: 46 of 50 of sampled links appear fully justified 
+* Human validation: 46 of 50 sampled links appear fully justified.
 * LLM-assisted audit (Opus 4.6): no critical *faithfulness* deviations in any scheme; 1–2 major deviations at median. [Validation](#){.fragment .opens-modal data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true"}
 * But: Carneades is hard to follow: sig. more *guideline* deviations.
 * Graph structure tracks the schemes: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. [Graph features](#){.fragment .opens-modal data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true"}
@@ -165,7 +165,7 @@ HAI-Workshop 'Symbolic and Neuro-Symbolic AI: Reasoning and Learning'
 
 # Conclusion & further work {layout="bullets" .gp-dense data-gp-section="Conclusion"}
 
-* Parsing arguments with agentic LLM's appears fully viable. 
+* Parsing arguments with agentic LLMs appears fully viable.
 * But much remains to be done! 
 * What are the optimal argumentation frameworks & workflows?
 * How to integrate solvers & verifiers?

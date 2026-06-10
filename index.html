@@ -184,43 +184,39 @@
 <section id="overview" class="slide level1" data-layout="bullets" data-gp-section="Overview">
 <h1>Overview</h1>
 <ul>
-<li>Research question, motivation and method</li>
+<li>Research question &amp; motivation</li>
 <li>Argumentation in philosophy</li>
 <li>Choosing argumentation frameworks</li>
-<li>Results (Max takes over, with his own slides?)</li>
+<li>Pilot-study &amp; Results</li>
 </ul>
 </section>
 <section id="research-question-method" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Question">
 <h1>Research Question + Method</h1>
 <ul>
 <li>Can we use LLMs to analyse and map out the argumentative structures of philosophical texts, leveraging the symbolic knowledge captured by formal argumentation frameworks?</li>
-<li>Method:
-<ul>
-<li>One informal framework + Dung + Carneades</li>
-<li>The use of agentive LLMs to break down the analysis in controllable steps</li>
-<li>The use of a specific dataset with [number] papers on philosophy of AI</li>
-<li>Different approaches to validation (next slide)</li>
-</ul></li>
+<li>How can such a system work, how do we validate it? <!-- * Method:
+    - One informal framework + Dung + Carneades
+    - Use agentive LLMs to break down the analysis in controllable steps
+    - The use of a specific dataset with [number] papers on philosophy of AI
+    - Different approaches to validation (next slide) --></li>
 </ul>
 
+<!-- # Validation {layout="bullets" .gp-dense data-gp-section="Validation"}
+
+* Inspecting the argumentation graph outcomes for well-known papers
+* Checking [number] random argument connections in produced graphs manually
+* Checking if the formal semantics tracks the argumentation and conclusion in the papers (assuming argumentation in the papers is correct)
+* Checking structural properties of the produced graphs against expectations of these properties in relation to philosophical texts -->
+<!-- quantitative and qualitative -->
 <aside><div>
 <p><span class="citation" data-cites="PeldszusStede2013 LippiTorroni2016 LiEtAl2025LLMArgumentMiningSurvey">(Peldszus and Stede 2013; Lippi and Torroni 2016; Li et al. 2025)</span></p>
 </div></aside></section>
-<section id="validation" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Validation">
-<h1>Validation</h1>
-<ul>
-<li>Inspecting the argumentation graph outcomes for well-known papers</li>
-<li>Checking [number] random argument connections in produced graphs manually</li>
-<li>Checking if the formal semantics tracks the argumentation and conclusion in the papers (assuming argumentation in the papers is correct)</li>
-<li>Checking structural properties of the produced graphs against expectations of these properties in relation to philosophical texts</li>
-</ul>
-</section>
 <section id="motivation" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Motivation">
 <h1>Motivation</h1>
 <ul>
 <li>A tool for students and researchers to get to the core of a paper more quickly</li>
 <li>Validity and ‘completeness’ checking of arguments in philosophical texts</li>
-<li>A metric for further quantitative and qualitative exploration of the body of knowledge that forms philosophy</li>
+<li>A metric for further exploration of the body of knowledge that forms philosophy</li>
 <li>Answering questions on differences between areas in philosophy</li>
 <li>Exploring if philosophical argumentation is in some sense ‘special’ (not begging the question, collapsing the distinction, etc.)</li>
 </ul>
@@ -234,9 +230,8 @@
 <li>An exact format (a formal language)</li>
 <li>A level of abstraction</li>
 <li>A formal semantics (an exact theory, in terms of the formal language, on what arguments are valid)</li>
+<li><strong>Are LLMs examples of symbolic or sub-symbolic AI?</strong></li>
 </ul>
-<p><br></p>
-<p><strong>Are LLMs examples of symbolic or sub-symbolic AI?</strong></p>
 </section>
 <section id="criteria-for-choosing-a-formal-structure" class="slide level1" data-layout="bullets" data-gp-section="Criteria">
 <h1>Criteria for choosing a formal structure</h1>
@@ -256,22 +251,19 @@
 <ul>
 <li>Dung: abstract (only arguments and attacks)</li>
 <li>ASPIC+: structured (premisses, different kinds of support, etc.)</li>
-<li>Carneades:</li>
+<li>Carneades <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/carneades_attack_types.png" data-modal-navblock="true">Attack types</a></li>
 </ul>
 
+<!-- # Pilot study {layout="divider" data-gp-kicker="Over to Max" data-gp-section="Pilot Study"} -->
 <aside><div>
 <p><span class="citation" data-cites="Dung1995 ModgilPrakken2014 GordonPrakkenWalton2007Carneades">(Dung 1995; Modgil and Prakken 2014; Gordon, Prakken, and Walton 2007)</span></p>
 </div></aside></section>
-<section id="pilot-study" class="slide level1" data-layout="divider" data-gp-kicker="Over to Max" data-gp-section="Pilot Study">
-<h1>Pilot study</h1>
-</section>
 <section id="pilot-study-data" class="slide level1" data-layout="bullets" data-gp-section="Data">
 <h1>Pilot study: Data</h1>
 <ul>
 <li>Corpus: <em>Mind Design III</em> — classic texts at the interface of philosophy, psychology, and AI: Searle, Dennett, Churchland, Fodor, …</li>
-<li>21 articles, median length 32 pages (range 16–42).</li>
-<li>Chosen for the quality of the texts, our familiarity with them, and their interest to our audience.</li>
-<li>Excluded: Turing’s <em>Computing Machinery and Intelligence</em> — the <em>imitation game</em> setup kept triggering our AI provider’s safety features.</li>
+<li>21 articles, median length 32 pages. <!-- * Chosen for the quality of the texts, our familiarity with them, and their interest to our audience. --></li>
+<li>Excluded: Turing’s <em>Computing Machinery and Intelligence</em>: The imitation game triggers GPT-5.5’s safety features.</li>
 </ul>
 
 <aside><div>
@@ -280,10 +272,12 @@
 <section id="pilot-study-workflow" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Workflow">
 <h1>Pilot study: Workflow</h1>
 <ul>
-<li>Agentic loop instead of single-pass prompting: arguments are distributed across philosophical texts in a highly nonlinear fashion.</li>
-<li>GPT-5.4 (reasoning effort “medium”) in OpenAI’s Codex CLI — tool-use, repeated text-lookups, iterative building of structures.</li>
-<li>Pass 1: work through the whole text (Markdown), annotate argumentatively relevant passages.</li>
-<li>Pass 2: build a JSON argument graph, following scheme-specific guidelines — generic, Dung-style, Carneades-style.</li>
+<li>Agentic loop, not single-pass: arguments are distributed across philosophical texts.</li>
+<li>GPT-5.4 in OpenAI’s Codex CLI: tool-use, repeated text-lookups, iterative work.
+<ul>
+<li>Stage 1: work through the whole text (Markdown) &amp; annotate argument passages.</li>
+<li>Pass 2: build a JSON argument graph, schematic guidelines — generic, Dung- &amp; Carneades-style.</li>
+</ul></li>
 <li>63 graphs (21 papers × 3 schemes), laid out with Graphviz.</li>
 </ul>
 
@@ -308,21 +302,29 @@
   <div class="gp-scheme-hint">Searle (1980) · scroll to zoom · drag to pan · double-click to reset</div>
 </div>
 </section>
-<section id="pilot-study-results" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Results">
-<h1>Pilot study: Results</h1>
+<section id="pilot-study-validation-results" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Results">
+<h1>Pilot study: Validation &amp; Results</h1>
+<!-- * Holistic check of papers we know well: reconstruction of argumentative lines impressively good. -->
+<!-- (92%, 95% Wilson CI [81.2%, 96.8%]). -->
 <ul>
-<li>Holistic check of papers we know well: reconstruction of argumentative lines impressively good.</li>
-<li>Human validation: 46 of 50 uniformly sampled links fully justified (92%, 95% Wilson CI [81.2%, 96.8%]).</li>
-<li>LLM-assisted audit (Opus 4.6): no critical faithfulness deviations in any scheme; 1–2 major deviations at the median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
-<li>But: Carneades is hard to follow — significantly more guideline deviations.</li>
+<li>Human validation: 46 of 50 of sampled links appear fully justified</li>
+<li>LLM-assisted audit (Opus 4.6): no critical *faithfulness’ deviations in any scheme; 1–2 major deviations at median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
+<li>But: Carneades is hard to follow: sig. more <em>guideline</em> deviations.</li>
 <li>Graph structure tracks the scheme: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true">Graph features</a></li>
 </ul>
 
 <aside><div>
 <p><span class="citation" data-cites="searleMindsBrainsPrograms1980">(Searle 1980)</span></p>
 </div></aside></section>
-<section id="thanks-for-listening" class="slide level1" data-layout="divider" data-gp-section="Thanks">
-<h1>Thanks for listening!</h1>
+<section id="conclusion-further-work" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Conclusion">
+<h1>Conclusion &amp; further work</h1>
+<ul>
+<li>Parsing arguments with agentic LLM’s appears fully viable.</li>
+<li>But much remains to be done!</li>
+<li>What are the optimal argumentation frameworks &amp; workflows?</li>
+<li>How to integrate solvers &amp; verifiers?</li>
+</ul>
+<!-- # Thanks for listening! {layout="divider" data-gp-section="Thanks"} -->
 </section>
 <section id="literature" class="slide level1 smaller scrollable" data-layout="references" data-gp-section="References">
 <h1>Literature</h1>

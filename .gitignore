@@ -27,6 +27,7 @@
 !/images/searle_carneades.svg
 !/images/argument_graph_eval_outcomes.svg
 !/images/argument_graph_stats.svg
+!/images/carneades_attack_types.png
 
 # Rendered site (hosted)
 !/index.html
@@ -35,3 +36,5 @@
 # Never commit OS/tool junk even inside whitelisted dirs
 .DS_Store
 .quarto/
+
+/.quarto/

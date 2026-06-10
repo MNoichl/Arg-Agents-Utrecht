@@ -184,14 +184,14 @@
 <section id="overview" class="slide level1" data-layout="bullets" data-gp-section="Overview">
 <h1>Overview</h1>
 <ul>
-<li>Research question &amp; motivation</li>
+<li>Research question and motivation</li>
 <li>Argumentation in philosophy</li>
 <li>Choosing argumentation frameworks</li>
 <li>Pilot-study &amp; Results</li>
 </ul>
 </section>
-<section id="research-question-method" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Question">
-<h1>Research Question + Method</h1>
+<section id="research-questions" class="slide level1 gp-dense" data-layout="bullets" data-gp-section="Research Question">
+<h1>Research Questions</h1>
 <ul>
 <li>Can we use LLMs to analyse and map out the argumentative structures of philosophical texts, leveraging the symbolic knowledge captured by formal argumentation frameworks?</li>
 <li>How can such a system work, how do we validate it? <!-- * Method:
@@ -239,8 +239,7 @@
 <li>Do we, apart from a formal syntax, require a formal semantics?</li>
 <li>Are positions/statements (targets or starting points for defense or attack) atomic or structured?</li>
 <li>Do we allow for hierarchy?</li>
-<li>Does a scheme only have attack relations or also support relations?</li>
-<li>Do we distinguish between different kinds of attack and support?</li>
+<li>Does a scheme only have attack relations or also support relations? Do we distinguish between different kinds of them?</li>
 </ul>
 
 <aside><div>
@@ -263,7 +262,7 @@
 <ul>
 <li>Corpus: <em>Mind Design III</em> — classic texts at the interface of philosophy, psychology, and AI: Searle, Dennett, Churchland, Fodor, …</li>
 <li>21 articles, median length 32 pages. <!-- * Chosen for the quality of the texts, our familiarity with them, and their interest to our audience. --></li>
-<li>Excluded: Turing’s <em>Computing Machinery and Intelligence</em>: The imitation game triggers GPT-5.5’s safety features.</li>
+<li>Excluded: Turing’s <em>Computing Machinery and Intelligence</em>: The imitation game triggers GPT-5.4’s safety features.</li>
 </ul>
 
 <aside><div>
@@ -276,7 +275,7 @@
 <li>GPT-5.4 in OpenAI’s Codex CLI: tool-use, repeated text-lookups, iterative work.
 <ul>
 <li>Stage 1: work through the whole text (Markdown) &amp; annotate argument passages.</li>
-<li>Pass 2: build a JSON argument graph, schematic guidelines — generic, Dung- &amp; Carneades-style.</li>
+<li>Pass 2: build a JSON argument graph, according to guidelines — generic, Dung- &amp; Carneades-style.</li>
 </ul></li>
 <li>63 graphs (21 papers × 3 schemes), laid out with Graphviz.</li>
 </ul>
@@ -308,9 +307,9 @@
 <!-- (92%, 95% Wilson CI [81.2%, 96.8%]). -->
 <ul>
 <li>Human validation: 46 of 50 of sampled links appear fully justified</li>
-<li>LLM-assisted audit (Opus 4.6): no critical *faithfulness’ deviations in any scheme; 1–2 major deviations at median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
+<li>LLM-assisted audit (Opus 4.6): no critical <em>faithfulness</em> deviations in any scheme; 1–2 major deviations at median. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_eval_outcomes.svg" data-modal-navblock="true">Validation</a></li>
 <li>But: Carneades is hard to follow: sig. more <em>guideline</em> deviations.</li>
-<li>Graph structure tracks the scheme: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true">Graph features</a></li>
+<li>Graph structure tracks the schemes: generic → fewest components; Dung → denser, shallower; Carneades → deeper, bipartite. <a href="#/" class="fragment opens-modal" data-modal-type="image" data-modal-url="images/argument_graph_stats.svg" data-modal-navblock="true">Graph features</a></li>
 </ul>
 
 <aside><div>
